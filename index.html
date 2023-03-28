@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LidoCalc</title>
+</head>
+<body>
+    <div id="container">
+        <section id="title">
+            <h1>LidoCalc</h1>
+            <p>Uma ferramenta simples para cálculo de doses de lidocaína para anestesia</p>
+        </section>
+        <section class="app">
+            <form action="" onsubmit="calculate(event)">
+                <label for="weight">Peso (kg):</label>
+                <input type="text" id="weight" name="patient_weight">
+                <button type="submit">Calcular</button>                    
+            </form>
+            <section id="display">
+
+            </section>
+        </section>
+    </div>
+<script>
+    const displayElement = document.querySelector("section#display")
+    const formElement = document.querySelector("form")
+    const weightElement = document.querySelector("input#weight")
+
+    const adultDosagePerKg = 4.4
+    const tubeCapacity = 36 
+    const maxDosage = 300
+
+    function calculate(event){
+        event.preventDefault()
+
+        displayElement.innerHTML = ""
+        
+        weight = Number.parseFloat(weightElement.value) 
+        if (Number.isNaN(weight)){
+            return false
+        }
+
+        dosage = weight * adultDosagePerKg 
+        if(dosage > maxDosage){
+            dosage = maxDosage
+        }
+
+        tubeCount = truncateHalf( dosage / tubeCapacity )
+
+        displayElement.appendChild(document.createTextNode(`${tubeCount} tubetes`))
+    }
+
+    function truncateHalf(number){
+        return Math.trunc(number*2)/2
+    }
+</script>
+</body>
+</html>
