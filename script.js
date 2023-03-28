@@ -33,8 +33,7 @@ function calculate(event){
         tubeContainer.setAttribute("class","tube-container")
         const tubeElement = document.createElement("img")
         tubeElement.setAttribute("src","assets/test-tube-5-svgrepo-com.svg")
-        tubeElement.setAttribute("width","50")
-        tubeElement.setAttribute("height","50")
+    
         if(i+1>tubeCount){
             tubeContainer.setAttribute("class","tube-container half")
         }
