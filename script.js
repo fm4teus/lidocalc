@@ -1,14 +1,15 @@
 const displayElement = document.querySelector("section#display")
 const formElement = document.querySelector("form")
 const weightElement = document.querySelector("input#weight")
+const buttonElement = document.querySelector("button")
+
+buttonElement.addEventListener("click",calculate)
 
 const adultDosagePerKg = 4.4
 const tubeCapacity = 36 
 const maxDosage = 300
 
-function calculate(event){
-    event.preventDefault()
-
+function calculate(){
     displayElement.innerHTML = ""
     
     weight = Number.parseFloat(weightElement.value) 

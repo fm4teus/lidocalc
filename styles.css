@@ -24,6 +24,8 @@ div#container{
     width: 100%;
     padding: 0 10%;
     box-sizing: border-box;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 section#display{
@@ -73,10 +75,10 @@ input{
 }
 
 button{
-    font-size: 1.5em;
+    font-size: 1em;
     margin-top: 1.5em;
     min-height: 2em;
-    padding: 5% 20%;
+    padding: 0.2em 20%;
     border-radius: 0.5em;
 }
 
